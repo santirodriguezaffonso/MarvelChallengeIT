@@ -9,21 +9,27 @@
 /* Begin PBXBuildFile section */
 		A2BB55B227F8793A00FB932E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55B127F8793A00FB932E /* AppDelegate.swift */; };
 		A2BB55B427F8793A00FB932E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55B327F8793A00FB932E /* SceneDelegate.swift */; };
-		A2BB55B627F8793A00FB932E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55B527F8793A00FB932E /* ViewController.swift */; };
+		A2BB55B627F8793A00FB932E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55B527F8793A00FB932E /* SignInViewController.swift */; };
 		A2BB55B927F8793A00FB932E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BB55B727F8793A00FB932E /* Main.storyboard */; };
 		A2BB55BB27F8794000FB932E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2BB55BA27F8794000FB932E /* Assets.xcassets */; };
 		A2BB55BE27F8794000FB932E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2BB55BC27F8794000FB932E /* LaunchScreen.storyboard */; };
+		A2BB55CA27FA281E00FB932E /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55C927FA281E00FB932E /* HeroesViewController.swift */; };
+		A2BB55CE27FA2B8A00FB932E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2BB55CD27FA2B8900FB932E /* GoogleService-Info.plist */; };
+		A2BB55D127FA2D6800FB932E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A2BB55D027FA2D6800FB932E /* FirebaseAuth */; };
+		A2BB55D327FA2D6800FB932E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A2BB55D227FA2D6800FB932E /* FirebaseFirestore */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A2BB55AE27F8793A00FB932E /* MarvelChallengeIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelChallengeIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BB55B127F8793A00FB932E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2BB55B327F8793A00FB932E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A2BB55B527F8793A00FB932E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A2BB55B527F8793A00FB932E /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		A2BB55B827F8793A00FB932E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2BB55BA27F8794000FB932E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2BB55BD27F8794000FB932E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2BB55BF27F8794000FB932E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A2BB55C927FA281E00FB932E /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
+		A2BB55CD27FA2B8900FB932E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2BB55D127FA2D6800FB932E /* FirebaseAuth in Frameworks */,
+				A2BB55D327FA2D6800FB932E /* FirebaseFirestore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,13 +66,39 @@
 			children = (
 				A2BB55B127F8793A00FB932E /* AppDelegate.swift */,
 				A2BB55B327F8793A00FB932E /* SceneDelegate.swift */,
-				A2BB55B527F8793A00FB932E /* ViewController.swift */,
-				A2BB55B727F8793A00FB932E /* Main.storyboard */,
+				A2BB55C727F889A900FB932E /* Model */,
+				A2BB55C627F8899B00FB932E /* View */,
+				A2BB55C527F8898F00FB932E /* Controler */,
 				A2BB55BA27F8794000FB932E /* Assets.xcassets */,
 				A2BB55BC27F8794000FB932E /* LaunchScreen.storyboard */,
 				A2BB55BF27F8794000FB932E /* Info.plist */,
+				A2BB55CD27FA2B8900FB932E /* GoogleService-Info.plist */,
 			);
 			path = MarvelChallengeIT;
+			sourceTree = "<group>";
+		};
+		A2BB55C527F8898F00FB932E /* Controler */ = {
+			isa = PBXGroup;
+			children = (
+				A2BB55B527F8793A00FB932E /* SignInViewController.swift */,
+				A2BB55C927FA281E00FB932E /* HeroesViewController.swift */,
+			);
+			path = Controler;
+			sourceTree = "<group>";
+		};
+		A2BB55C627F8899B00FB932E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				A2BB55B727F8793A00FB932E /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		A2BB55C727F889A900FB932E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +117,10 @@
 			dependencies = (
 			);
 			name = MarvelChallengeIT;
+			packageProductDependencies = (
+				A2BB55D027FA2D6800FB932E /* FirebaseAuth */,
+				A2BB55D227FA2D6800FB932E /* FirebaseFirestore */,
+			);
 			productName = MarvelChallengeIT;
 			productReference = A2BB55AE27F8793A00FB932E /* MarvelChallengeIT.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +149,9 @@
 				Base,
 			);
 			mainGroup = A2BB55A527F8793A00FB932E;
+			packageReferences = (
+				A2BB55CF27FA2D6800FB932E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = A2BB55AF27F8793A00FB932E /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -126,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A2BB55BE27F8794000FB932E /* LaunchScreen.storyboard in Resources */,
+				A2BB55CE27FA2B8A00FB932E /* GoogleService-Info.plist in Resources */,
 				A2BB55BB27F8794000FB932E /* Assets.xcassets in Resources */,
 				A2BB55B927F8793A00FB932E /* Main.storyboard in Resources */,
 			);
@@ -138,8 +180,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2BB55B627F8793A00FB932E /* ViewController.swift in Sources */,
+				A2BB55B627F8793A00FB932E /* SignInViewController.swift in Sources */,
 				A2BB55B227F8793A00FB932E /* AppDelegate.swift in Sources */,
+				A2BB55CA27FA281E00FB932E /* HeroesViewController.swift in Sources */,
 				A2BB55B427F8793A00FB932E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,6 +401,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A2BB55CF27FA2D6800FB932E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 8.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A2BB55D027FA2D6800FB932E /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2BB55CF27FA2D6800FB932E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		A2BB55D227FA2D6800FB932E /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A2BB55CF27FA2D6800FB932E /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A2BB55A627F8793A00FB932E /* Project object */;
 }
