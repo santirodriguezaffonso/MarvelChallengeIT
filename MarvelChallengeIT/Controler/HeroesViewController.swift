@@ -13,41 +13,20 @@ class HeroesViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var characters: [CharacterModel] = [
-        CharacterModel(id: 1, characterName: "Spider Man", description: "no one", image: "sdsdss")
-        ]
+    
+    var characters = [CharacterModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.hidesBackButton = true
-        title = "Pesonajes"
-        marvelManager.delegate = self
+//        marvelManager.delegate = self
+//        tableView.delegate = self
         tableView.dataSource = self
         
     }
-    
-    
 }
 
-//MARK: – MarvelManagerDelegate –
-
-extension HeroesViewController: MarvelManagerDelegate {
-    func didUpdateEvent(_ marvelManager: MarvelManager, event: EventsModel) {
-        DispatchQueue.main.async {
-            
-        }
-    }
-    
-    func didUpdateCharacter(_ marvelManager: MarvelManager, character: CharacterModel) {
-    }
-    
-    func didFailWithError(error: Error) {
-        print(error)
-    }
-}
-
-//MARK: UITableView
+//MARK: – UITableViewDataSource –
 
 extension HeroesViewController: UITableViewDataSource {
     
@@ -56,9 +35,43 @@ extension HeroesViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
-        cell.textLabel?.text = "This is a cell"
-        return cell
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath)
+//        cell.textLabel?.text = "characters[indexPath.row]."
+        return UITableViewCell()
     }
-    
 }
+
+//MARK: – UITableViewDelegate –
+
+ // This is to interact with each cell
+extension HeroesViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "HeroesToDetails", sender: self)
+    }
+
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if let destination = segue.destination as? HeroesViewController {
+//            destination.characters = characters[tableView.indexPathForSelectedRow?.row]
+//        }
+//    }
+}
+
+
+
+
+////MARK: – MarvelManagerDelegate –
+//
+//extension HeroesViewController: MarvelManagerDelegate {
+//    func didUpdateEvent(_ marvelManager: MarvelManager, event: EventsModel) {
+//        }
+//
+//    func didUpdateCharacter(_ marvelManager: MarvelManager, character: CharacterModel) {
+//        DispatchQueue.main.async {
+//
+//        }
+//    }
+//
+//    func didFailWithError(error: Error) {
+//        print(error)
+//    }
+//}

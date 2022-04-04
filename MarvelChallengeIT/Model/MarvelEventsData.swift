@@ -12,7 +12,7 @@ struct MarvelEventsData: Codable {
 }
 
 struct EventData: Codable {
-    let results: [Event]
+    let results: Event
 }
 
 struct Event: Codable {
@@ -30,5 +30,5 @@ struct URLElements2: Codable {
 
 struct Thumbnail2: Codable {
     let path: String
-    let thumbnailExtension: String
+    let thumbnailExtension1: String
 }

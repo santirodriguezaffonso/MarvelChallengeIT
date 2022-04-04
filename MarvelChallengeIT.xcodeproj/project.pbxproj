@@ -23,6 +23,8 @@
 		A2BB55DF27FB242800FB932E /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55DE27FB242800FB932E /* CharacterModel.swift */; };
 		A2BB55E127FB2F4000FB932E /* EventsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55E027FB2F4000FB932E /* EventsViewController.swift */; };
 		A2BB55E327FB30B100FB932E /* EventsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55E227FB30B100FB932E /* EventsModel.swift */; };
+		A2BB55E627FB843E00FB932E /* CharacterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55E427FB843E00FB932E /* CharacterCell.swift */; };
+		A2BB55E727FB843E00FB932E /* CharacterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A2BB55E527FB843E00FB932E /* CharacterCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +44,8 @@
 		A2BB55DE27FB242800FB932E /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
 		A2BB55E027FB2F4000FB932E /* EventsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsViewController.swift; sourceTree = "<group>"; };
 		A2BB55E227FB30B100FB932E /* EventsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsModel.swift; sourceTree = "<group>"; };
+		A2BB55E427FB843E00FB932E /* CharacterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterCell.swift; sourceTree = "<group>"; };
+		A2BB55E527FB843E00FB932E /* CharacterCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CharacterCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 			isa = PBXGroup;
 			children = (
 				A2BB55B727F8793A00FB932E /* Main.storyboard */,
+				A2BB55E427FB843E00FB932E /* CharacterCell.swift */,
+				A2BB55E527FB843E00FB932E /* CharacterCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -112,8 +118,8 @@
 			children = (
 				A2BB55D827FA4C2900FB932E /* MarvelManager.swift */,
 				A2BB55DA27FA4CB200FB932E /* MarvelCharacterData.swift */,
-				A2BB55DE27FB242800FB932E /* CharacterModel.swift */,
 				A2BB55DC27FA6DC700FB932E /* MarvelEventsData.swift */,
+				A2BB55DE27FB242800FB932E /* CharacterModel.swift */,
 				A2BB55E227FB30B100FB932E /* EventsModel.swift */,
 			);
 			path = Model;
@@ -186,6 +192,7 @@
 			files = (
 				A2BB55BE27F8794000FB932E /* LaunchScreen.storyboard in Resources */,
 				A2BB55CE27FA2B8A00FB932E /* GoogleService-Info.plist in Resources */,
+				A2BB55E727FB843E00FB932E /* CharacterCell.xib in Resources */,
 				A2BB55BB27F8794000FB932E /* Assets.xcassets in Resources */,
 				A2BB55B927F8793A00FB932E /* Main.storyboard in Resources */,
 			);
@@ -201,6 +208,7 @@
 				A2BB55B627F8793A00FB932E /* SignInViewController.swift in Sources */,
 				A2BB55B227F8793A00FB932E /* AppDelegate.swift in Sources */,
 				A2BB55D927FA4C2900FB932E /* MarvelManager.swift in Sources */,
+				A2BB55E627FB843E00FB932E /* CharacterCell.swift in Sources */,
 				A2BB55CA27FA281E00FB932E /* HeroesViewController.swift in Sources */,
 				A2BB55DB27FA4CB200FB932E /* MarvelCharacterData.swift in Sources */,
 				A2BB55DF27FB242800FB932E /* CharacterModel.swift in Sources */,
