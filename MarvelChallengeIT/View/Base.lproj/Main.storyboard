@@ -111,7 +111,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1926.0869565217392" y="83.705357142857139"/>
+            <point key="canvasLocation" x="2836.2318840579715" y="83.705357142857139"/>
         </scene>
         <!--EventsViewController-->
         <scene sceneID="n9Y-eq-Z5V">
@@ -120,6 +120,13 @@
                     <view key="view" contentMode="scaleToFill" id="sf6-is-2Pi">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mmt-Ry-rlN">
+                                <rect key="frame" x="0.0" y="84" width="414" height="758"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="xPP-zv-bkw"/>
                         <color key="backgroundColor" name="BlueMarvel"/>
                     </view>
@@ -127,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="suj-hl-o3S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3594" y="907"/>
+            <point key="canvasLocation" x="3592.753623188406" y="906.69642857142856"/>
         </scene>
         <!--Details View Controller-->
         <scene sceneID="tb1-Rf-X9Y">
@@ -137,7 +144,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="97d-wU-7Bf"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemRedColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="obN-zy-fcf"/>
                 </viewController>
@@ -148,27 +155,44 @@
         <!--HeroesViewController-->
         <scene sceneID="OQq-mn-U1H">
             <objects>
-                <viewController id="N4E-ua-XSH" userLabel="HeroesViewController" customClass="HeroesViewController" customModule="MarvelChallengeIT" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="N4E-ua-XSH" userLabel="HeroesViewController" customClass="HeroesViewController" customModule="MarvelChallengeIT" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="22p-CB-HFT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0JT-WI-5Us">
+                                <rect key="frame" x="0.0" y="83" width="414" height="759"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ReusableCell" id="kZa-z6-enG">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kZa-z6-enG" id="r7R-PM-qFc">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6AM-2K-aYN"/>
                         <color key="backgroundColor" name="BlueMarvel"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Heroes" image="person.and.person" catalog="system" id="e6c-q6-Ci3"/>
                     <connections>
-                        <segue destination="hhd-gt-o6S" kind="show" identifier="HeroesToDetails" id="Y0C-xL-M95"/>
+                        <outlet property="tableView" destination="0JT-WI-5Us" id="OxO-08-GQx"/>
+                        <segue destination="hhd-gt-o6S" kind="presentation" identifier="HeroesToDetails" id="Y0C-xL-M95"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sfU-rM-3HN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2877" y="907"/>
+            <point key="canvasLocation" x="2876.811594202899" y="906.69642857142856"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Hws-gu-qHu">
             <objects>
                 <tabBarController modalPresentationStyle="fullScreen" id="iaq-Hf-2Ip" sceneMemberID="viewController">
-                    <navigationItem key="navigationItem" id="H6E-6u-Yrz"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Zy-Fu-dyj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -181,7 +205,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ZM-qf-2Qx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2876.811594202899" y="83.705357142857139"/>
+            <point key="canvasLocation" x="3786.9565217391309" y="83.705357142857139"/>
         </scene>
     </scenes>
     <resources>
@@ -200,6 +224,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 
 class SignInViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
@@ -17,19 +17,21 @@ class SignInViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
+    
     @IBAction func signInPressed(_ sender: UIButton) {
         
         if let email = emailTextField.text, let password = passwordTextField.text {
-            Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+            Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     print(e.localizedDescription)
+                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                        self.performSegue(withIdentifier: "SignInHome", sender: self)
+                    }
                 } else {
                     self.performSegue(withIdentifier: "SignInHome", sender: self)
                 }
             }
         }
     }
-    
 }
 
