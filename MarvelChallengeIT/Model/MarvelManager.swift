@@ -14,6 +14,8 @@ import CryptoKit
 //    func didFailWithError(error: Error)
 //}
 
+
+
 struct MarvelManager {
     
 //    var delegate: MarvelManagerDelegate?
@@ -29,7 +31,7 @@ struct MarvelManager {
         .joined()
     }
     
-    func searchCaracter() {
+    func searchCaracters() {
         let ts = String(Date().timeIntervalSince1970)
         let hash = MD5(data: "\(ts)")
         let urlString = "https://gateway.marvel.com:443/v1/public/characters?orderBy=name&ts=\(ts)&apikey=\(publickKey)&hash=\(hash)"
@@ -65,14 +67,27 @@ struct MarvelManager {
             let description = decodedData.data.results[0].description
             let image = decodedData.data.results[0].thumbnail[0].path
             
-            
             let character = CharacterModel(id: id, characterName: name, description: description, image: image)
             return character
         } catch {
+            print(error.localizedDescription)
 //            delegate?.didFailWithError(error: error)
             return nil
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     //// MARK: Event JSON
     //

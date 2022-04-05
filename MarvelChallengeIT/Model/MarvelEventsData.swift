@@ -30,5 +30,5 @@ struct URLElements2: Codable {
 
 struct Thumbnail2: Codable {
     let path: String
-    let thumbnailExtension1: String
+    let `extension`: String
 }

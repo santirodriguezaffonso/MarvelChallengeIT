@@ -20,11 +20,13 @@ class HeroesViewController: UIViewController {
         super.viewDidLoad()
         
 //        marvelManager.delegate = self
-//        tableView.delegate = self
+        
+        tableView.delegate = self
         tableView.dataSource = self
         
     }
 }
+
 
 //MARK: – UITableViewDataSource –
 
@@ -55,6 +57,18 @@ extension HeroesViewController: UITableViewDelegate {
 //        }
 //    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
