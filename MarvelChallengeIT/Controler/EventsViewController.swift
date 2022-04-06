@@ -8,11 +8,17 @@
 import UIKit
 
 class EventsViewController: UIViewController {
-
+    
+    let appearance = UINavigationBarAppearance()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        title = "Eventos"
+        appearance.titleTextAttributes = [.foregroundColor: UIColor.white]
+        appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationItem.hidesBackButton = true
+
     }
     
 
