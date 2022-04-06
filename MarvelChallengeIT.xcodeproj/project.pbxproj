@@ -17,7 +17,7 @@
 		A2BB55CE27FA2B8A00FB932E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A2BB55CD27FA2B8900FB932E /* GoogleService-Info.plist */; };
 		A2BB55D127FA2D6800FB932E /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = A2BB55D027FA2D6800FB932E /* FirebaseAuth */; };
 		A2BB55D327FA2D6800FB932E /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = A2BB55D227FA2D6800FB932E /* FirebaseFirestore */; };
-		A2BB55D927FA4C2900FB932E /* MarvelManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55D827FA4C2900FB932E /* MarvelManager.swift */; };
+		A2BB55D927FA4C2900FB932E /* MarvelKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55D827FA4C2900FB932E /* MarvelKeys.swift */; };
 		A2BB55DB27FA4CB200FB932E /* MarvelCharacterData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55DA27FA4CB200FB932E /* MarvelCharacterData.swift */; };
 		A2BB55DD27FA6DC700FB932E /* MarvelEventsData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55DC27FA6DC700FB932E /* MarvelEventsData.swift */; };
 		A2BB55DF27FB242800FB932E /* CharacterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55DE27FB242800FB932E /* CharacterModel.swift */; };
@@ -38,7 +38,7 @@
 		A2BB55BF27F8794000FB932E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2BB55C927FA281E00FB932E /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
 		A2BB55CD27FA2B8900FB932E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		A2BB55D827FA4C2900FB932E /* MarvelManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelManager.swift; sourceTree = "<group>"; };
+		A2BB55D827FA4C2900FB932E /* MarvelKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelKeys.swift; sourceTree = "<group>"; };
 		A2BB55DA27FA4CB200FB932E /* MarvelCharacterData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacterData.swift; sourceTree = "<group>"; };
 		A2BB55DC27FA6DC700FB932E /* MarvelEventsData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelEventsData.swift; sourceTree = "<group>"; };
 		A2BB55DE27FB242800FB932E /* CharacterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterModel.swift; sourceTree = "<group>"; };
@@ -116,7 +116,7 @@
 		A2BB55C727F889A900FB932E /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A2BB55D827FA4C2900FB932E /* MarvelManager.swift */,
+				A2BB55D827FA4C2900FB932E /* MarvelKeys.swift */,
 				A2BB55DA27FA4CB200FB932E /* MarvelCharacterData.swift */,
 				A2BB55DC27FA6DC700FB932E /* MarvelEventsData.swift */,
 				A2BB55DE27FB242800FB932E /* CharacterModel.swift */,
@@ -207,7 +207,7 @@
 			files = (
 				A2BB55B627F8793A00FB932E /* SignInViewController.swift in Sources */,
 				A2BB55B227F8793A00FB932E /* AppDelegate.swift in Sources */,
-				A2BB55D927FA4C2900FB932E /* MarvelManager.swift in Sources */,
+				A2BB55D927FA4C2900FB932E /* MarvelKeys.swift in Sources */,
 				A2BB55E627FB843E00FB932E /* CharacterCell.swift in Sources */,
 				A2BB55CA27FA281E00FB932E /* HeroesViewController.swift in Sources */,
 				A2BB55DB27FA4CB200FB932E /* MarvelCharacterData.swift in Sources */,

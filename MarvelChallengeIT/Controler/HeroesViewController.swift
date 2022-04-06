@@ -7,13 +7,15 @@
 
 import UIKit
 import Firebase
+import CryptoKit
 
 class HeroesViewController: UIViewController {
     
-    var marvelManager = MarvelManager()
+    var mManager = MarvelKeys()
+    
     let appearance = UINavigationBarAppearance()
     
-    var characters = [CharacterModel]()
+    var characters = [MarvelCharacterData]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,13 +25,8 @@ class HeroesViewController: UIViewController {
         appearance.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
         navigationItem.hidesBackButton = true
         
-        tableView.register(UINib(nibName: "CharacterCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
-        
-//        marvelManager.delegate = self
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        
+        setupTable()
+        fetchCharacter()
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -43,7 +40,48 @@ class HeroesViewController: UIViewController {
             print("Error signing out: %@", signOutError)
         }
     }
+    
+    private func setupTable() {
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "CharacterCell", bundle: nil), forCellReuseIdentifier: "ReusableCell")
+    }
+    
+    private func fetchCharacter() {
+        let ts = String(Date().timeIntervalSince1970)
+        let hash = MD5(data: "\(ts)\(mManager.publicK)\(mManager.privateK)")
+        
+        let url = URL(string: "https://gateway.marvel.com:443/v1/public/characters?orderBy=name&ts=\(ts)&apikey=\(mManager.publicK)&hash=\(hash)")
+        
+        URLSession.shared.dataTask(with: URLRequest(url: url!)) { data, _, error in
+            if error != nil {
+                print(String(describing: error))
+                return
+            }
+            
+            do {
+                self.characters = try JSONDecoder().decode([MarvelCharacterData].self, from: data!)
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+            catch {
+                print(String(describing: error))
+            }
+        }
+        .resume()
+    }
+    
+    func MD5(data: String) -> String {
+        let hash = Insecure.MD5.hash(data: data.data(using: .utf8) ?? Data())
+        return hash.map {
+            String(format: "%02hhx", $0)
+        }
+        .joined()
+    }
+    
 }
+
 
 
 //MARK: – UITableViewDataSource –
@@ -52,12 +90,12 @@ class HeroesViewController: UIViewController {
 extension HeroesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 20
+        return characters.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-                let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! CharacterCell
-        cell.characterNameLabel.text = "Spider Man"
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! CharacterCell
+        cell.characterNameLabel.text = characters[indexPath.row].data.results[0].name
         return cell
     }
 }
