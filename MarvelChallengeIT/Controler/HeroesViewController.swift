@@ -27,10 +27,10 @@ class HeroesViewController: UIViewController {
         
         setupTable()
         fetchCharacter()
+        
     }
     
     @IBOutlet weak var tableView: UITableView!
-    
     @IBAction func logOutPressed(_ sender: UIBarButtonItem) {
         
         do {
@@ -49,9 +49,9 @@ class HeroesViewController: UIViewController {
     
     private func fetchCharacter() {
         let ts = String(Date().timeIntervalSince1970)
-        let hash = MD5(data: "\(ts)\(mManager.publicK)\(mManager.privateK)")
+        let hash = MD5(data: "\(ts)\(mManager.privateK)\(mManager.publicK)")
         
-        let url = URL(string: "https://gateway.marvel.com:443/v1/public/characters?orderBy=name&ts=\(ts)&apikey=\(mManager.publicK)&hash=\(hash)")
+        let url = URL(string: "https://gateway.marvel.com:443/v1/public/characters?&ts=\(ts)&apikey=\(mManager.publicK)&hash=\(hash)")
         
         let task = URLSession.shared.dataTask(with: URLRequest(url: url!)) { data, _, error in
             if error != nil {
@@ -60,8 +60,8 @@ class HeroesViewController: UIViewController {
             }
             
             do {
-                let result = try JSONDecoder().decode(MarvelCharacterData.self, from: data!)
-                (print(result))
+                let decoded = try JSONDecoder().decode(MarvelCharacterData.self, from: data!)
+                self.characters = decoded.data.results
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -77,10 +77,23 @@ class HeroesViewController: UIViewController {
         let hash = Insecure.MD5.hash(data: data.data(using: .utf8) ?? Data())
         return hash.map {
             String(format: "%02hhx", $0)
-        }
-        .joined()
+        } .joined()
     }
-    
+}
+
+extension UIImageView {
+    func loadImage(with urlString: String) {
+        let url = URL(string: urlString)
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url!) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
+    }
 }
 
 
@@ -97,11 +110,13 @@ extension HeroesViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! CharacterCell
         cell.characterNameLabel.text = characters[indexPath.row].name
+        cell.characterDescriptionLabel.text = characters[indexPath.row].description
+        cell.characterImageView.loadImage(with: "\(characters[indexPath.row].thumbnail.path)/standard_large.\(characters[indexPath.row].thumbnail.extension)")
         return cell
     }
 }
 
-//MARK: – UITableViewDelegate –
+//MARK: – UITableViewDelegate
 
 // This is to interact with each cell
 extension HeroesViewController: UITableViewDelegate {
@@ -115,35 +130,3 @@ extension HeroesViewController: UITableViewDelegate {
     //        }
     //    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-////MARK: – MarvelManagerDelegate –
-//
-//extension HeroesViewController: MarvelManagerDelegate {
-//    func didUpdateEvent(_ marvelManager: MarvelManager, event: EventsModel) {
-//        }
-//
-//    func didUpdateCharacter(_ marvelManager: MarvelManager, character: CharacterModel) {
-//        DispatchQueue.main.async {
-//
-//        }
-//    }
-//
-//    func didFailWithError(error: Error) {
-//        print(error)
-//    }
-//}
