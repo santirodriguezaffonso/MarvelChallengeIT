@@ -81,7 +81,7 @@ extension EventsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! CharacterCell
         cell.characterNameLabel.text = events[indexPath.row].name
 //        cell.characterDescriptionLabel.text = events[indexPath.row].description
-        cell.characterImageView.loadImage(with: "\(events[indexPath.row].thumbnail.path)/standard_large.\(events[indexPath.row].thumbnail.extension)")
+        cell.characterImageView.loadImage(with: "\(events[indexPath.row].thumbnail.path)/landscape_xlarge.\(events[indexPath.row].thumbnail.extension)")
         return cell
     }
 }

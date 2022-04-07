@@ -84,6 +84,7 @@ class HeroesViewController: UIViewController {
 //MARK: Image Donwloader
 
 var imageCache = NSCache<AnyObject, AnyObject>()
+
 extension UIImageView {
     func loadImage(with urlString: String) {
         if let image = imageCache.object(forKey: urlString as NSString) as? UIImage {
