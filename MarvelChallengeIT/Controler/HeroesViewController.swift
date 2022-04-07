@@ -11,7 +11,7 @@ import CryptoKit
 
 class HeroesViewController: UIViewController {
     
-    var signInClear = SignInViewController()
+    
     var mManager = MarvelKeys()
     
     let appearance = UINavigationBarAppearance()
