@@ -17,15 +17,21 @@ struct CharacterData: Codable {
     let results: [Character]
 }
 
-struct Character: Identifiable, Codable {
+struct Character: Codable {
     let id: Int                             //The unique ID of the character resource.
     let name: String                        //The name of the character.
     let description: String                 //A short bio or description of the character.
-    let thumbnail: [String:String]          //The representative image for this character.
-    let urls: [[String: String]] 
+    let thumbnail: Images                   //The representative image for this character.
+    let resourceURI: String
+    let comics: ComicsElements
 }
 
-//struct Thumbnail: Codable {
-//    let path: String                        //The directory path of to the image.,
-//    let `extension`: String
-//}
+struct Images: Codable {
+    let path: String                        //The directory path of to the image.,
+    let `extension`: String
+}
+
+struct ComicsElements: Codable {
+    let available: Int
+    let collectionURI: String
+}

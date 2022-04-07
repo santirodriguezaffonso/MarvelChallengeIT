@@ -15,7 +15,7 @@ class HeroesViewController: UIViewController {
     
     let appearance = UINavigationBarAppearance()
     
-    var characters = [MarvelCharacterData]()
+    var characters: [Character] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,14 +53,15 @@ class HeroesViewController: UIViewController {
         
         let url = URL(string: "https://gateway.marvel.com:443/v1/public/characters?orderBy=name&ts=\(ts)&apikey=\(mManager.publicK)&hash=\(hash)")
         
-        URLSession.shared.dataTask(with: URLRequest(url: url!)) { data, _, error in
+        let task = URLSession.shared.dataTask(with: URLRequest(url: url!)) { data, _, error in
             if error != nil {
                 print(String(describing: error))
                 return
             }
             
             do {
-                self.characters = try JSONDecoder().decode([MarvelCharacterData].self, from: data!)
+                let result = try JSONDecoder().decode(MarvelCharacterData.self, from: data!)
+                (print(result))
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -69,7 +70,7 @@ class HeroesViewController: UIViewController {
                 print(String(describing: error))
             }
         }
-        .resume()
+        task.resume()
     }
     
     func MD5(data: String) -> String {
@@ -95,7 +96,7 @@ extension HeroesViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! CharacterCell
-        cell.characterNameLabel.text = characters[indexPath.row].data.results[0].name
+        cell.characterNameLabel.text = characters[indexPath.row].name
         return cell
     }
 }
