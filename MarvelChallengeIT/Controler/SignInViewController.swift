@@ -24,8 +24,14 @@ class SignInViewController: UIViewController {
             Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
                 if let e = error {
                     print(e.localizedDescription)
-                    Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
-                        self.performSegue(withIdentifier: "SignInHome", sender: self)
+                    if let email = self.emailTextField.text, let password = self.passwordTextField.text {
+                        Auth.auth().createUser(withEmail: email, password: password) { authResult, error in
+                            if let e = error {
+                                print(e.localizedDescription)
+                            } else {
+                                self.performSegue(withIdentifier: "SignInHome", sender: self)
+                            }
+                        }
                     }
                 } else {
                     self.performSegue(withIdentifier: "SignInHome", sender: self)
