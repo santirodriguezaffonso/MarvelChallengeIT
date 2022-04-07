@@ -39,5 +39,9 @@ class SignInViewController: UIViewController {
             }
         }
     }
+    override func viewWillAppear(_ animated: Bool) {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+    }
 }
 
