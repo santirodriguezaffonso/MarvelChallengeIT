@@ -75,8 +75,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="cellFrame" destination="Q54-8t-iJL" id="PJt-bt-2XC"/>
+                <outlet property="cellImage" destination="kot-3d-Hhd" id="hti-CS-Lrb"/>
                 <outlet property="characterDescriptionLabel" destination="qa1-Zg-e5r" id="6oW-VL-uCb"/>
-                <outlet property="characterImageView" destination="kot-3d-Hhd" id="hti-CS-Lrb"/>
                 <outlet property="characterNameLabel" destination="Aem-rB-VOF" id="6OX-Lk-m2K"/>
             </connections>
             <point key="canvasLocation" x="123.91304347826087" y="51.5625"/>

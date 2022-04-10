@@ -8,27 +8,34 @@
 import Foundation
 
 struct MarvelEventsData: Codable {
-    let data: EventData
+    let `data`: EventData
 }
 
 struct EventData: Codable {
-    let results: Event
+    let offset: Int
+    let limit: Int
+    let total: Int
+    let count: Int
+    let results: [Event]
 }
 
 struct Event: Codable {
-    let id: String
+    let id: Int
     let title: String
     let description: String
-    let urls: [URLElements2]
-    let thumbnail: [Thumbnail2]
+    let resourceURI: String
+    let urls: [UrlElements]
+    let start: String?
+    let end: String?
+    let thumbnail: [EventImages]
 }
 
-struct URLElements2: Codable {
+struct UrlElements: Codable {
     let type: String
     let url: String
 }
 
-struct Thumbnail2: Codable {
+struct EventImages: Codable {
     let path: String
     let `extension`: String
 }

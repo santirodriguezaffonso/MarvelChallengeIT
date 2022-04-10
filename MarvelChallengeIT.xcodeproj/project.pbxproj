@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A25663FA28035E0F00F9B299 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25663F928035E0F00F9B299 /* DetailsViewController.swift */; };
 		A2BB55B227F8793A00FB932E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55B127F8793A00FB932E /* AppDelegate.swift */; };
 		A2BB55B427F8793A00FB932E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55B327F8793A00FB932E /* SceneDelegate.swift */; };
 		A2BB55B627F8793A00FB932E /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2BB55B527F8793A00FB932E /* SignInViewController.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A25663F928035E0F00F9B299 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		A2BB55AE27F8793A00FB932E /* MarvelChallengeIT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MarvelChallengeIT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2BB55B127F8793A00FB932E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2BB55B327F8793A00FB932E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				A2BB55B527F8793A00FB932E /* SignInViewController.swift */,
 				A2BB55C927FA281E00FB932E /* HeroesViewController.swift */,
 				A2BB55E027FB2F4000FB932E /* EventsViewController.swift */,
+				A25663F928035E0F00F9B299 /* DetailsViewController.swift */,
 			);
 			path = Controler;
 			sourceTree = "<group>";
@@ -209,6 +212,7 @@
 				A2BB55B627F8793A00FB932E /* SignInViewController.swift in Sources */,
 				A2BB55B227F8793A00FB932E /* AppDelegate.swift in Sources */,
 				A2BB55D927FA4C2900FB932E /* MarvelKeys.swift in Sources */,
+				A25663FA28035E0F00F9B299 /* DetailsViewController.swift in Sources */,
 				A2BB55E627FB843E00FB932E /* CharacterCell.swift in Sources */,
 				A2C49EFF27FF77CD00996E71 /* EventCell.swift in Sources */,
 				A2BB55CA27FA281E00FB932E /* HeroesViewController.swift in Sources */,

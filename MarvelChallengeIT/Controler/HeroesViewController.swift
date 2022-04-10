@@ -10,14 +10,13 @@ import Firebase
 import CryptoKit
 
 class HeroesViewController: UIViewController {
-    
-    
+
     var mManager = MarvelKeys()
     
-    let appearance = UINavigationBarAppearance()
-    
+    var imageURL: String = ""
     var characters: [Character] = []
     
+    let appearance = UINavigationBarAppearance()
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +27,6 @@ class HeroesViewController: UIViewController {
         
         setupTable()
         fetchCharacter()
-        
     }
     
     @IBOutlet weak var tableView: UITableView!
@@ -120,7 +118,8 @@ extension HeroesViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! CharacterCell
         cell.characterNameLabel.text = characters[indexPath.row].name
         cell.characterDescriptionLabel.text = characters[indexPath.row].description
-        cell.characterImageView.loadImage(with: "\(characters[indexPath.row].thumbnail.path)/standard_large.\(characters[indexPath.row].thumbnail.extension)")
+        cell.cellImage.loadImage(with: "\(characters[indexPath.row].thumbnail.path)/standard_large.\(characters[indexPath.row].thumbnail.extension)")
+        imageURL = "\(characters[indexPath.row].thumbnail.path)/standard_large.\(characters[indexPath.row].thumbnail.extension)"
         return cell
     }
 }
@@ -130,12 +129,13 @@ extension HeroesViewController: UITableViewDataSource {
 // This is to interact with each cell
 extension HeroesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ToDetails", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
+        let heroes = characters[indexPath.row]
+        if let detailsVC = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController {
+            detailsVC.characterTitle = heroes.name
+            detailsVC.characterDescription = heroes.description
+//            detailsVC.receivedImage =
+            self.present(detailsVC, animated: true)
+        }
     }
-    
-    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-    //        if let destination = segue.destination as? HeroesViewController {
-    //            destination.characters = characters[tableView.indexPathForSelectedRow?.row]
-    //        }
-    //    }
 }

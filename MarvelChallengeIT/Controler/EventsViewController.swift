@@ -13,7 +13,7 @@ class EventsViewController: UIViewController {
     var mManager = MarvelKeys()
     let appearance = UINavigationBarAppearance()
 
-    var events: [Character] = []
+    var events: [Event] = []
 
     @IBOutlet weak var eventsTableView: UITableView!
 
@@ -47,8 +47,8 @@ private func fetchEvents() {
         }
 
         do {
-            let decoded = try JSONDecoder().decode(MarvelCharacterData.self, from: data!)
-            self.events = decoded.data.results
+            self.events = try JSONDecoder().decode([Event].self, from: data!)
+//            self.events = decoded.data.results
             DispatchQueue.main.async {
                 self.eventsTableView.reloadData()
             }
@@ -78,10 +78,10 @@ extension EventsViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! CharacterCell
-        cell.characterNameLabel.text = events[indexPath.row].name
-//        cell.characterDescriptionLabel.text = events[indexPath.row].description
-        cell.characterImageView.loadImage(with: "\(events[indexPath.row].thumbnail.path)/landscape_xlarge.\(events[indexPath.row].thumbnail.extension)")
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! EventCell
+        cell.titleLabel.text = events[indexPath.row].title
+//        cell.descriptionLabel.text = events[indexPath.row].start
+        cell.cellImage.loadImage(with: "\(events[indexPath.row].thumbnail[0].path)/standard_large.\(events[indexPath.row].thumbnail[0].extension)")
         return cell
     }
 }
@@ -90,7 +90,7 @@ extension EventsViewController: UITableViewDataSource {
 
 extension EventsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "ToDetails", sender: self)
+//        performSegue(withIdentifier: "ToDetails", sender: self)
     }
 
     //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
