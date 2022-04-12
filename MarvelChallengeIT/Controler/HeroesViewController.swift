@@ -129,7 +129,7 @@ extension HeroesViewController: UITableViewDataSource {
 // This is to interact with each cell
 extension HeroesViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true) // This deselect every row after touch it
         let heroes = characters[indexPath.row]
         if let detailsVC = storyboard?.instantiateViewController(withIdentifier: "DetailsViewController") as? DetailsViewController {
             detailsVC.characterTitle = heroes.name
